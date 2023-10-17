@@ -9,13 +9,11 @@ import com.example.composequotesapp.model.Quotes
 
 
 @Composable
-fun QuotesList(data : Array<Quotes>, onclick: () -> Unit) {
+fun QuotesList(data : Array<Quotes>, onclick: (quotes: Quotes) -> Unit) {
     
     LazyColumn(content = {
         items(data) {
-            QuotesListItems(quotes = it) {
-                onclick()
-            }
+            QuotesListItems(quotes = it, onclick)
         }
     })
     

@@ -35,12 +35,12 @@ import com.example.composequotesapp.R
 import com.example.composequotesapp.model.Quotes
 
 @Composable
-fun QuotesListItems(quotes: Quotes, onClick: () -> Unit ) {
+fun QuotesListItems(quotes: Quotes, onClick: (quotes: Quotes) -> Unit ) {
 
     Card(
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp),
         modifier = Modifier.padding(8.dp)
-            .clickable { onClick }
+            .clickable { onClick(quotes) }
     ) {
         Row(modifier = Modifier.padding(16.dp)) {
 

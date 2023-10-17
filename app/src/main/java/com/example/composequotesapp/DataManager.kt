@@ -10,6 +10,8 @@ import kotlin.text.Charsets.UTF_8
 object DataManager {
 
     var data = emptyArray<Quotes>()
+    var currentPage = mutableStateOf(Pages.LISTING)
+    var currentQuotes: Quotes? = null
     var isDataLoaded = mutableStateOf(false)
 
     fun loadAssetFromFile(context: Context){
@@ -24,5 +26,13 @@ object DataManager {
         isDataLoaded.value = true
     }
 
+    fun switchPages(quotes: Quotes?){
+        if (currentPage.value == Pages.LISTING){
+            currentQuotes = quotes
+            currentPage.value = Pages.DETAIL
+        }else{
+            currentPage.value = Pages.LISTING
+        }
+    }
 
 }
